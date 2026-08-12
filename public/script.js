@@ -138,7 +138,7 @@ form.addEventListener("submit", async (event) => {
 
     form.reset();
     syncInvoiceField();
-    const successUrl = new URL("/success/", window.location.origin);
+    const successUrl = new URL("/success.html", window.location.origin);
     successUrl.searchParams.set("submissionId", result.submissionId);
     successUrl.searchParams.set("email", payload.email);
     successUrl.searchParams.set("fullName", payload.full_name);
