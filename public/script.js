@@ -138,7 +138,11 @@ form.addEventListener("submit", async (event) => {
 
     form.reset();
     syncInvoiceField();
-    window.location.href = "/success/";
+    const successUrl = new URL("/success/", window.location.origin);
+    successUrl.searchParams.set("submissionId", result.submissionId);
+    successUrl.searchParams.set("email", payload.email);
+    successUrl.searchParams.set("fullName", payload.full_name);
+    window.location.href = successUrl.toString();
   } catch (error) {
     setMessage(error.message || "Submission failed. Please try again.", "error");
   } finally {
