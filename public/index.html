@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BNYC Qingdao Trip | Register & Pay</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <div class="brand-block">
+          <div>
+            <div class="brand-title">Sing-China</div>
+            <div class="brand-subtitle">BNYC Qingdao Trip</div>
+          </div>
+        </div>
+        <img src="./logo.png" alt="Sing-China logo" class="brand-logo" />
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <section class="product-layout">
+        <div class="poster-panel">
+          <figure class="programme-poster-image-wrap">
+            <img src="./1.png" alt="BNYC Qingdao Trip programme poster" class="programme-poster-image" />
+          </figure>
+
+          <section class="itinerary-card" aria-labelledby="itinerary-title">
+            <h3 id="itinerary-title">Simple Itinerary</h3>
+            <div class="itinerary-list">
+              <article>
+                <h4>Day 1 - Discover Qingdao</h4>
+                <p>Arrival &amp; Qingdao Old Town City Walk</p>
+              </article>
+              <article>
+                <h4>Day 2 - Management &amp; Entrepreneurship</h4>
+                <p>Opening Ceremony · Business Lecture · Haier Group · BNYC Business Exchange</p>
+              </article>
+              <article>
+                <h4>Day 3 - Innovation &amp; Global Brands</h4>
+                <p>Hisense Group · Tsingtao Brewery</p>
+              </article>
+              <article>
+                <h4>Day 4 - Culture &amp; Connection</h4>
+                <p>Laoshan Cultural Experience · Closing Ceremony</p>
+              </article>
+              <article>
+                <h4>Day 5 - Departure</h4>
+              </article>
+            </div>
+          </section>
+        </div>
+
+        <section class="details-panel" id="overview">
+          <p class="eyebrow">BNYC Qingdao Trip</p>
+          <h2>BNYC Qingdao Trip</h2>
+          <div class="price-block">SGD 1,600.00</div>
+          <p class="details-summary">5-Day China Immersion Programme</p>
+
+          <div class="detail-group">
+            <h3>Programme Dates</h3>
+            <p>20-24 September 2026</p>
+          </div>
+
+          <div class="detail-group">
+            <h3>The programme includes</h3>
+            <ul>
+              <li>Executive learning sessions</li>
+              <li>Company and institutional visits</li>
+              <li>Local programme transportation</li>
+            </ul>
+          </div>
+
+          <div class="detail-group" id="payment">
+            <h3>Payment</h3>
+            <p>Please scan the PayNow QR code and upload your payment proof after payment.</p>
+            <p class="payment-reference-note">Please enter your full name in the payment reference.</p>
+            <div class="pay-card">
+              <img src="./paynow-qr.png" alt="Sing-China PayNow QR Code" class="paynow-qr" />
+              <div class="pay-card__meta">
+                <p><strong>Payee:</strong> Sing-China</p>
+                <p><strong>Amount:</strong> SGD 1,600.00</p>
+              </div>
+            </div>
+          </div>
+
+          <p class="detail-note">
+            After payment verification, participants will receive a confirmation email. If invoice is requested,
+            it will be sent to the registered email address within 5 working days.
+          </p>
+        </section>
+      </section>
+
+      <section class="register-panel" id="register">
+        <div class="section-heading">
+          <p class="eyebrow">Register & Pay</p>
+          <h2>Participant Registration Form</h2>
+          <p>Complete the form below and upload your payment proof.</p>
+        </div>
+
+        <form id="registrationForm" enctype="multipart/form-data" novalidate>
+          <div class="form-grid two-column">
+            <label>
+              <span>Full Name <span class="required">*</span></span>
+              <input name="fullName" type="text" required />
+            </label>
+            <label>
+              <span>Email Address <span class="required">*</span></span>
+              <input name="email" type="email" required />
+            </label>
+            <label>
+              <span>Contact Number <span class="required">*</span></span>
+              <input name="contactNumber" type="tel" required />
+            </label>
+            <label>
+              <span>Company Name &amp; Designation <span class="required">*</span></span>
+              <input name="companyDesignation" type="text" required />
+            </label>
+          </div>
+
+          <div class="form-section compact-section">
+            <h3>Do you require an invoice?</h3>
+            <p class="field-help">
+              If yes, the invoice will be sent to your registered email address within 5 working days after payment verification.
+            </p>
+
+            <div class="invoice-choice" role="radiogroup" aria-label="Do you require an invoice?">
+              <label class="radio-card">
+                <input type="radio" name="requireInvoice" value="Yes" required />
+                <span>Yes, I require an invoice</span>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="requireInvoice" value="No" required />
+                <span>No invoice needed</span>
+              </label>
+            </div>
+
+            <label id="invoiceNameField">
+              <span>Company / Individual Name for Invoice</span>
+              <input
+                name="invoiceName"
+                type="text"
+                placeholder="Enter company name or individual name for invoice"
+              />
+            </label>
+          </div>
+
+          <div class="form-section compact-section">
+            <h3>Payment Proof</h3>
+            <div class="form-grid">
+              <label>
+                <span>Payment Proof <span class="required">*</span></span>
+                <input
+                  name="paymentProof"
+                  type="file"
+                  accept=".jpg,.jpeg,.png,.webp,.pdf"
+                  required
+                />
+              </label>
+            </div>
+          </div>
+
+          <div class="form-section compact-section">
+            <label class="checkbox-row">
+              <input name="consent" type="checkbox" required />
+              <span>
+                I confirm that the information provided is accurate and I consent to Sing-China using it for registration,
+                payment verification, and programme administration. <span class="required">*</span>
+              </span>
+            </label>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" id="submitButton">Register</button>
+            <p id="formMessage" class="form-message" aria-live="polite"></p>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <template id="successTemplate">
+      <div class="success-box">
+        <h3>Registration Submitted</h3>
+        <p>Your registration has been saved successfully. Submission ID: <strong data-submission-id></strong></p>
+      </div>
+    </template>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="./config.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
