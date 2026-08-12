@@ -383,6 +383,95 @@ button:disabled {
   background: #effcf6;
 }
 
+.success-page-shell {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+.success-page-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+  padding: 40px;
+}
+
+.success-page-card h1,
+.success-next-steps h2 {
+  margin-top: 0;
+}
+
+.success-page-intro {
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.success-summary {
+  margin-top: 28px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.success-summary__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 18px;
+  background: var(--surface-soft);
+}
+
+.success-summary__row + .success-summary__row {
+  border-top: 1px solid var(--line);
+}
+
+.success-summary__row span {
+  color: var(--muted);
+}
+
+.success-next-steps {
+  margin-top: 28px;
+}
+
+.success-next-steps ul {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.success-help-note {
+  margin-top: 24px;
+  padding: 16px 18px;
+  border-radius: 16px;
+  background: #eef6ff;
+  border: 1px solid #cdddf8;
+  color: var(--brand-dark);
+}
+
+.success-help-note p {
+  margin: 0;
+}
+
+.success-actions {
+  margin-top: 28px;
+}
+
+.button-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%);
+  color: #fff;
+  padding: 15px 28px;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 16px 26px rgba(17, 47, 121, 0.22);
+}
+
 @media (max-width: 1080px) {
   .product-layout,
   .two-column,
@@ -416,6 +505,20 @@ button:disabled {
   .details-panel h2,
   .register-panel h2 {
     font-size: 2rem;
+  }
+
+  .success-page-shell {
+    padding: 28px 14px 56px;
+  }
+
+  .success-page-card {
+    padding: 24px 20px;
+    border-radius: 20px;
+  }
+
+  .success-summary__row {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .price-block {

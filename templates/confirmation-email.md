@@ -4,6 +4,11 @@
 
 `[BNYC Qingdao Trip] Registration Confirmation / 报名确认`
 
+## 发信信息
+
+- From Name: `Sing-China`
+- From Email: `oversea@edutrain.com.sg`
+
 ## 邮件正文
 
 Dear Participant / Parent,
@@ -39,40 +44,7 @@ Best regards,
 
 Sing-China
 
----
 
-尊敬的参与者 / 家长，
-
-感谢您报名 **BNYC Qingdao Trip**。
-
-我们已成功收到您的报名资料及付款凭证。
-
-### 项目信息
-
-- 项目名称：BNYC Qingdao Trip
-- 收款 / 主办单位：Sing-China
-- 项目日期：2026 年 9 月 20 日至 9 月 24 日
-- 已收费用：SGD 1,600
-
-### 项目包含内容
-
-- Executive learning sessions
-- Company and institutional visits
-- Local programme transportation
-
-### 后续安排
-
-- 我们将审核您提交的报名信息与付款记录。
-- 如需补充资料或进一步确认，我们会通过电邮或电话与您联系。
-- 出发前相关说明及最终通知，将于接近出发日期时统一发送。
-
-如有任何问题，欢迎直接回复此邮件与我们联系。
-
-感谢您的报名，期待与您在青岛见面。
-
-此致
-
-Sing-China
 
 ## 可替换字段
 

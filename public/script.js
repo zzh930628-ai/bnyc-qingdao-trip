@@ -1,7 +1,6 @@
 const form = document.getElementById("registrationForm");
 const submitButton = document.getElementById("submitButton");
 const formMessage = document.getElementById("formMessage");
-const successTemplate = document.getElementById("successTemplate");
 const isFilePreview = window.location.protocol === "file:";
 const invoiceInputs = Array.from(document.querySelectorAll('input[name="requireInvoice"]'));
 const invoiceNameInput = document.querySelector('input[name="invoiceName"]');
@@ -128,18 +127,18 @@ form.addEventListener("submit", async (event) => {
       submissionId
     };
 
-    setMessage(result.message, "success");
-
-    const successBox = successTemplate.content.firstElementChild.cloneNode(true);
-    successBox.querySelector("[data-submission-id]").textContent = result.submissionId;
-    const previousSuccess = document.querySelector(".success-box");
-    if (previousSuccess) {
-      previousSuccess.remove();
-    }
-    formMessage.after(successBox);
+    window.sessionStorage.setItem(
+      "registrationSuccess",
+      JSON.stringify({
+        submissionId: result.submissionId,
+        email: payload.email,
+        fullName: payload.full_name
+      })
+    );
 
     form.reset();
     syncInvoiceField();
+    window.location.href = "./success.html";
   } catch (error) {
     setMessage(error.message || "Submission failed. Please try again.", "error");
   } finally {
