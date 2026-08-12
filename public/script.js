@@ -138,7 +138,7 @@ form.addEventListener("submit", async (event) => {
 
     form.reset();
     syncInvoiceField();
-    window.location.href = "./success.html";
+    window.location.href = "/success/";
   } catch (error) {
     setMessage(error.message || "Submission failed. Please try again.", "error");
   } finally {
