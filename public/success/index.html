@@ -3,362 +3,40 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BNYC Qingdao Trip | Registration Submitted</title>
+    <title>Redirecting...</title>
+    <meta http-equiv="refresh" content="0; url=/success.html" />
+    <script>
+      const target = new URL("/success.html", window.location.origin);
+      target.search = window.location.search;
+      window.location.replace(target.toString());
+    </script>
     <style>
-      :root {
-        color-scheme: light;
-        --bg: #f4f7fb;
-        --surface: #ffffff;
-        --surface-soft: #f8fbff;
-        --ink: #17284a;
-        --muted: #607089;
-        --line: #d8e1ef;
-        --brand: #12357f;
-        --brand-dark: #091b45;
-        --accent: #cfa35f;
-        --shadow: 0 24px 60px rgba(9, 27, 69, 0.08);
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        background: #f4f7fb;
+        color: #17284a;
         font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       }
 
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        margin: 0;
-        background:
-          radial-gradient(circle at top right, rgba(18, 53, 127, 0.08), transparent 24%),
-          linear-gradient(180deg, #f9fbff 0%, var(--bg) 100%);
-        color: var(--ink);
-      }
-
-      .topbar {
-        background: #051127;
-        color: #fff;
-      }
-
-      .topbar-inner {
-        max-width: 1180px;
-        margin: 0 auto;
-        padding: 16px 24px;
-      }
-
-      .brand-name {
-        font-size: 1.45rem;
-        font-weight: 800;
-      }
-
-      .brand-sub {
-        margin-top: 4px;
-        color: rgba(255, 255, 255, 0.72);
-        font-size: 0.95rem;
-      }
-
-      .page {
-        max-width: 1180px;
-        margin: 0 auto;
-        padding: 42px 24px 72px;
-      }
-
-      .hero {
-        display: grid;
-        grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
-        gap: 24px;
-        background: var(--surface);
-        border: 1px solid var(--line);
-        border-radius: 30px;
-        box-shadow: var(--shadow);
-        padding: 34px;
-      }
-
-      .eyebrow {
-        margin: 0 0 10px;
-        color: var(--brand);
-        text-transform: uppercase;
-        letter-spacing: 0.14em;
-        font-size: 0.76rem;
-        font-weight: 800;
-      }
-
-      h1,
-      h2,
-      h3,
       p {
-        margin-top: 0;
-      }
-
-      h1 {
-        margin-bottom: 16px;
-        font-size: clamp(2.4rem, 5vw, 4rem);
-        line-height: 1.02;
-      }
-
-      .intro {
-        color: var(--muted);
-        font-size: 1.06rem;
-        line-height: 1.8;
-        max-width: 60ch;
-      }
-
-      .badges {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 22px;
-      }
-
-      .badges span {
-        border: 1px solid #d5e1fb;
-        background: #eff5ff;
-        color: var(--brand);
-        border-radius: 999px;
-        padding: 9px 12px;
-        font-size: 0.9rem;
-        font-weight: 700;
-      }
-
-      .summary {
-        margin-top: 28px;
-        border: 1px solid var(--line);
-        border-radius: 18px;
-        overflow: hidden;
-      }
-
-      .summary-row {
-        display: flex;
-        justify-content: space-between;
-        gap: 18px;
-        padding: 16px 18px;
-        background: var(--surface-soft);
-      }
-
-      .summary-row + .summary-row {
-        border-top: 1px solid var(--line);
-      }
-
-      .summary-row span {
-        color: var(--muted);
-      }
-
-      .hero-side {
-        border-radius: 24px;
-        padding: 24px;
-        background:
-          linear-gradient(180deg, rgba(18, 53, 127, 0.06) 0%, rgba(207, 163, 95, 0.08) 100%),
-          #fff;
-        border: 1px solid var(--line);
-      }
-
-      .hero-side h2 {
-        margin-bottom: 14px;
-      }
-
-      .hero-side p {
-        color: var(--muted);
-        line-height: 1.75;
-      }
-
-      .qingdao-points {
-        display: grid;
-        gap: 14px;
-        margin-top: 20px;
-      }
-
-      .qingdao-points article {
-        padding: 16px;
-        border-radius: 18px;
-        border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.9);
-      }
-
-      .qingdao-points h3 {
-        margin: 0 0 6px;
-        font-size: 1rem;
-        color: var(--brand);
-      }
-
-      .qingdao-points p {
         margin: 0;
-      }
-
-      .grid {
-        display: grid;
-        grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-        gap: 24px;
-        margin-top: 24px;
-      }
-
-      .card {
-        background: var(--surface);
-        border: 1px solid var(--line);
-        border-radius: 26px;
-        box-shadow: var(--shadow);
-        padding: 30px;
-      }
-
-      .card ul {
-        margin: 0;
-        padding-left: 20px;
-        color: var(--muted);
-        line-height: 1.85;
-      }
-
-      .receipt-note {
-        margin-top: 18px;
-        padding: 16px 18px;
-        border-radius: 16px;
-        background: #eef6ff;
-        border: 1px solid #cfdcf7;
-        color: var(--brand-dark);
+        text-align: center;
         line-height: 1.7;
       }
 
-      @media (max-width: 980px) {
-        .hero,
-        .grid {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      @media (max-width: 760px) {
-        .page {
-          padding: 24px 14px 48px;
-        }
-
-        .hero,
-        .card {
-          padding: 22px;
-          border-radius: 20px;
-        }
-
-        .summary-row {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-
-        h1 {
-          font-size: 2.2rem;
-        }
+      a {
+        color: #12357f;
       }
     </style>
   </head>
   <body>
-    <header class="topbar">
-      <div class="topbar-inner">
-        <div class="brand-name">Sing-China</div>
-        <div class="brand-sub">BNYC Qingdao Trip</div>
-      </div>
-    </header>
-
-    <main class="page">
-      <section class="hero">
-        <div>
-          <p class="eyebrow">Registration Submitted</p>
-          <h1 id="successHeadline">See You In Qingdao.</h1>
-          <p class="intro">
-            Your registration and payment proof have been received successfully. Our team will review your submission and verify your PayNow payment shortly.
-          </p>
-
-          <div class="badges">
-            <span>5-Day China Immersion Programme</span>
-            <span>20-24 September 2026</span>
-            <span>PayNow Payment Received</span>
-          </div>
-
-          <div class="summary">
-            <div class="summary-row">
-              <span>Submission ID</span>
-              <strong id="successSubmissionId">-</strong>
-            </div>
-            <div class="summary-row">
-              <span>Registered Email</span>
-              <strong id="successEmail">-</strong>
-            </div>
-            <div class="summary-row">
-              <span>Payment Status</span>
-              <strong>Pending Verification</strong>
-            </div>
-          </div>
-
-        </div>
-        <aside class="hero-side">
-          <p class="eyebrow">Discover Qingdao</p>
-          <h2>What You May Experience In Qingdao</h2>
-          <p>
-            From its coastal skyline to its business landscape, Qingdao offers a distinctive blend of innovation, culture, and global industry.
-          </p>
-          <div class="qingdao-points">
-            <article>
-              <h3>Seaside Skyline</h3>
-              <p>Enjoy modern waterfront views, open sea air, and one of China’s most recognisable coastal cityscapes.</p>
-            </article>
-            <article>
-              <h3>Historic Character</h3>
-              <p>Explore old-town streets, red-roof architecture, and the European-influenced charm of Qingdao.</p>
-            </article>
-            <article>
-              <h3>Innovation & Industry</h3>
-              <p>See how advanced manufacturing, entrepreneurship, and major Chinese brands connect in real business settings.</p>
-            </article>
-          </div>
-          <img src="/1.png" alt="BNYC Qingdao Trip poster" class="success-poster" />
-        </aside>
-      </section>
-      <section class="grid">
-        <section class="card">
-          <div>
-          <div class="success-next-steps">
-            <h2>What Happens Next</h2>
-            <ul>
-              <li>A registration receipt email will be sent to your registered email address.</li>
-              <li>A registration receipt email can be sent to your registered email address.</li>
-              <li>If an invoice was requested, it will be sent within 5 working days after payment verification.</li>
-              <li>Please keep your submission ID for any follow-up enquiry.</li>
-            </ul>
-          </div>
-
-        <aside class="card">
-          <h2>Registration Receipt</h2>
-          <div class="receipt-note">
-            A confirmation receipt can be issued from <strong>oversea@edutrain.com.sg</strong> after submission. Your PayNow payment will still be checked manually before final verification.
-          </div>
-            </article>
-          </div>
-        </aside>
-      </section>
-    <script>
-      const successSubmissionId = document.getElementById("successSubmissionId");
-      const successEmail = document.getElementById("successEmail");
-      const successHeadline = document.getElementById("successHeadline");
-
-      function applySuccessData(data) {
-        successSubmissionId.textContent = data.submissionId || "-";
-        successEmail.textContent = data.email || "-";
-        if (data.fullName) {
-          successHeadline.textContent = `Thank you, ${data.fullName}. See You In Qingdao.`;
-        }
-      }
-
-      try {
-        const params = new URLSearchParams(window.location.search);
-        const dataFromQuery = {
-          submissionId: params.get("submissionId") || "",
-          email: params.get("email") || "",
-          fullName: params.get("fullName") || ""
-        };
-
-        if (dataFromQuery.submissionId || dataFromQuery.email || dataFromQuery.fullName) {
-          applySuccessData(dataFromQuery);
-        } else {
-          const raw = window.sessionStorage.getItem("registrationSuccess");
-          if (raw) {
-            applySuccessData(JSON.parse(raw));
-          }
-        }
-      } catch (_error) {
-        successSubmissionId.textContent = "-";
-        successEmail.textContent = "-";
-      }
-    </script>
-
-    <script src="/success.js"></script>
+    <p>
+      Redirecting to the registration confirmation page.
+      If nothing happens, <a href="/success.html">open it here</a>.
+    </p>
+  </body>
+</html>

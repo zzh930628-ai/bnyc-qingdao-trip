@@ -114,6 +114,73 @@ window.APP_CONFIG = {
 
 - 页面已经提醒用户：`Please enter your full name in the payment reference.`
 - 提交按钮文案为 `Register`
+- 提交成功后会跳转到独立成功页 `success.html`
+
+## 多客户复用
+
+现在这套项目已经适合继续复用给不同客户，同时不影响当前 `BNYC` 页面。
+
+- 默认客户配置文件： [client-config.js](file:///Users/zihangzhu/Documents/trae_projects/website/public/client-config.js)
+- 当前默认客户 slug： `bnyc-qingdao`
+- 默认线上访问方式： `/`
+- 指定其他客户的访问方式： `/?client=你的客户slug`
+
+### 新增一个客户怎么做
+
+1. 打开 [client-config.js](file:///Users/zihangzhu/Documents/trae_projects/website/public/client-config.js)
+2. 复制 `bnyc-qingdao` 这一整段配置
+3. 改成新的 slug，例如 `client-b`
+4. 替换下面这些内容：
+
+- `brand.name`
+- `brand.subtitle`
+- `brand.logoSrc`
+- `programme.name`
+- `programme.priceDisplay`
+- `programme.amountValue`
+- `programme.posterSrc`
+- `programme.datesValue`
+- `programme.includesItems`
+- `programme.itineraryItems`
+- `payment.qrSrc`
+- `payment.payeeName`
+- `success.headlineLines`
+- `success.badges`
+- `success.discoverItems`
+
+### 新素材放哪里
+
+建议把新客户素材放到自己的目录，例如：
+
+```text
+public/clients/client-b/logo.png
+public/clients/client-b/poster.png
+public/clients/client-b/paynow-qr.png
+```
+
+然后在 `client-config.js` 里这样写：
+
+```js
+logoSrc: "/clients/client-b/logo.png",
+posterSrc: "/clients/client-b/poster.png",
+qrSrc: "/clients/client-b/paynow-qr.png"
+```
+
+当前项目已经按这个方式整理：
+
+```text
+public/clients/bnyc-qingdao/
+public/clients/business-china-ylp-shenzhen/
+```
+
+如果某个客户暂时没有单独的 logo 文件，就把 `logoSrc` 留空，页面会自动隐藏 logo，避免误用其他客户的 logo。
+
+### 为什么这样不会影响现在的网页
+
+- 根页面 `/` 仍然默认读取 `bnyc-qingdao`
+- 新客户通过 `?client=slug` 切换配置
+- 成功页会自动带上同一个 `client` 参数
+- 所有客户共用同一套模板，但文案和素材彼此独立
 
 ## 本地预览
 

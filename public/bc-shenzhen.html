@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BNYC Qingdao Trip | Register & Pay</title>
+    <title>Business China YLP Immersion Programme - Shenzhen | Register</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,11 +17,11 @@
       <div class="site-header__inner">
         <div class="brand-block">
           <div>
-            <div class="brand-title" id="brandName">Sing-China</div>
-            <div class="brand-subtitle" id="brandSubtitle">BNYC Qingdao Trip</div>
+            <div class="brand-title" id="brandName">Business China</div>
+            <div class="brand-subtitle" id="brandSubtitle">YLP Immersion Programme - Shenzhen</div>
           </div>
         </div>
-        <img src="/clients/bnyc-qingdao/logo.png" alt="Sing-China logo" class="brand-logo" id="brandLogo" />
+        <img src="" alt="Business China logo" class="brand-logo" id="brandLogo" hidden />
       </div>
     </header>
 
@@ -30,57 +30,33 @@
         <div class="poster-panel">
           <figure class="programme-poster-image-wrap">
             <img
-              src="/clients/bnyc-qingdao/poster.png"
-              alt="BNYC Qingdao Trip programme poster"
+              src="/clients/business-china-ylp-shenzhen/poster.png"
+              alt="Business China Youth Leader Program 2026 poster"
               class="programme-poster-image"
               id="programmePoster"
             />
           </figure>
 
           <section class="itinerary-card" aria-labelledby="itinerary-title">
-            <h3 id="itinerary-title">Simple Itinerary</h3>
-            <div class="itinerary-list" id="itineraryList">
-              <article>
-                <h4>Day 1 - Discover Qingdao</h4>
-                <p>Arrival &amp; Qingdao Old Town City Walk</p>
-              </article>
-              <article>
-                <h4>Day 2 - Management &amp; Entrepreneurship</h4>
-                <p>Opening Ceremony · Business Lecture · Haier Group · BNYC Business Exchange</p>
-              </article>
-              <article>
-                <h4>Day 3 - Innovation &amp; Global Brands</h4>
-                <p>Hisense Group · Tsingtao Brewery</p>
-              </article>
-              <article>
-                <h4>Day 4 - Culture &amp; Connection</h4>
-                <p>Laoshan Cultural Experience · Closing Ceremony</p>
-              </article>
-              <article>
-                <h4>Day 5 - Departure</h4>
-              </article>
-            </div>
+            <h3 id="itinerary-title">Seven-Day Journey</h3>
+            <div class="itinerary-list" id="itineraryList"></div>
           </section>
         </div>
 
         <section class="details-panel" id="overview">
-          <p class="eyebrow" id="programmeEyebrow">BNYC Qingdao Trip</p>
-          <h2 id="programmeName">BNYC Qingdao Trip</h2>
-          <div class="price-block" id="programmePrice">SGD 1,600.00</div>
-          <p class="details-summary" id="programmeSummary">5-Day China Immersion Programme</p>
+          <p class="eyebrow" id="programmeEyebrow">Youth Leader Program 2026</p>
+          <h2 id="programmeName">Business China YLP Immersion Programme - Shenzhen</h2>
+          <div class="price-block" id="programmePrice">SGD 2,650.00</div>
+          <p class="details-summary" id="programmeSummary">7-Day Executive Learning Journey</p>
 
           <div class="detail-group">
-            <h3 id="programmeDatesLabel">Programme Dates</h3>
-            <p id="programmeDatesValue">20-24 September 2026</p>
+            <h3 id="programmeDatesLabel">Programme Duration</h3>
+            <p id="programmeDatesValue">Seven-Day Journey</p>
           </div>
 
           <div class="detail-group">
-            <h3 id="programmeIncludesLabel">The programme includes</h3>
-            <ul id="programmeIncludesList">
-              <li>Executive learning sessions</li>
-              <li>Company and institutional visits</li>
-              <li>Local programme transportation</li>
-            </ul>
+            <h3 id="programmeIncludesLabel">Who Should Attend?</h3>
+            <ul id="programmeIncludesList"></ul>
           </div>
 
           <div class="detail-group" id="payment">
@@ -88,17 +64,16 @@
             <p id="paymentDescription">Please scan the PayNow QR code and upload your payment proof after payment.</p>
             <p class="payment-reference-note" id="paymentReferenceNote">Please enter your full name in the payment reference.</p>
             <div class="pay-card">
-              <img src="/clients/bnyc-qingdao/paynow-qr.png" alt="Sing-China PayNow QR Code" class="paynow-qr" id="paynowQr" />
+              <img src="/clients/business-china-ylp-shenzhen/YLP paynow.png" alt="Business China YLP PayNow QR Code" class="paynow-qr" id="paynowQr" />
               <div class="pay-card__meta">
                 <p><strong>Payee:</strong> <span id="paymentPayeeName">Sing-China</span></p>
-                <p><strong>Amount:</strong> <span id="paymentAmount">SGD 1,600.00</span></p>
+                <p><strong>Amount:</strong> <span id="paymentAmount">SGD 2,650.00</span></p>
               </div>
             </div>
           </div>
 
           <p class="detail-note" id="detailNote">
-            After payment verification, participants will receive a confirmation email. If invoice is requested,
-            it will be sent to the registered email address within 5 working days.
+            The Youth Leader Program 2026 is a seven-day executive learning journey in Shenzhen for emerging business leaders seeking deeper insight into China’s innovation economy, artificial intelligence ecosystem and technology-driven industrial transformation.
           </p>
         </section>
       </section>
@@ -178,7 +153,7 @@
               <input name="consent" type="checkbox" required />
               <span>
                 <span id="consentText">
-                  I confirm that the information provided is accurate and I consent to Sing-China using it for registration,
+                  I confirm that the information provided is accurate and I consent to Business China and Sing-China using it for registration,
                   payment verification, and programme administration.
                 </span>
                 <span class="required">*</span>
@@ -194,6 +169,9 @@
       </section>
     </main>
 
+    <script>
+      window.FORCED_CLIENT_SLUG = "business-china-ylp-shenzhen";
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="./config.js"></script>
     <script src="./client-config.js"></script>

@@ -5,6 +5,7 @@ const isFilePreview = window.location.protocol === "file:";
 const invoiceInputs = Array.from(document.querySelectorAll('input[name="requireInvoice"]'));
 const invoiceNameInput = document.querySelector('input[name="invoiceName"]');
 const appConfig = window.APP_CONFIG || {};
+const clientConfig = window.ACTIVE_CLIENT_CONFIG || window.getClientConfig?.(window.DEFAULT_CLIENT_SLUG) || null;
 const supabaseUrl = appConfig.supabaseUrl || "";
 const supabaseAnonKey = appConfig.supabaseAnonKey || "";
 const supabaseBucket = appConfig.supabaseBucket || "payment-proofs";
@@ -12,6 +13,116 @@ const supabaseClient =
   supabaseUrl && supabaseAnonKey && window.supabase
     ? window.supabase.createClient(supabaseUrl, supabaseAnonKey)
     : null;
+
+function setText(id, value) {
+  const element = document.getElementById(id);
+  if (element && typeof value === "string") {
+    element.textContent = value;
+  }
+}
+
+function setImage(id, src, alt) {
+  const element = document.getElementById(id);
+  if (!element) {
+    return;
+  }
+
+  if (!src) {
+    element.hidden = true;
+    return;
+  }
+
+  element.hidden = false;
+
+  element.src = src;
+
+  if (alt) {
+    element.alt = alt;
+  }
+}
+
+function renderTextList(containerId, items) {
+  const container = document.getElementById(containerId);
+  if (!container || !Array.isArray(items)) {
+    return;
+  }
+
+  container.innerHTML = "";
+  items.forEach((item) => {
+    const listItem = document.createElement("li");
+    listItem.textContent = item;
+    container.appendChild(listItem);
+  });
+}
+
+function renderItinerary(items) {
+  const container = document.getElementById("itineraryList");
+  if (!container || !Array.isArray(items)) {
+    return;
+  }
+
+  container.innerHTML = "";
+  items.forEach((item) => {
+    const article = document.createElement("article");
+    const heading = document.createElement("h4");
+    heading.textContent = item.title || "";
+    article.appendChild(heading);
+
+    if (item.description) {
+      const description = document.createElement("p");
+      description.textContent = item.description;
+      article.appendChild(description);
+    }
+
+    container.appendChild(article);
+  });
+}
+
+function applyClientContent(config) {
+  if (!config) {
+    return;
+  }
+
+  const { brand, programme, payment, registration } = config;
+  document.title = programme.pageTitle || document.title;
+  setText("brandName", brand.name);
+  setText("brandSubtitle", brand.subtitle);
+  setImage("brandLogo", brand.logoSrc, brand.logoAlt);
+
+  setImage("programmePoster", programme.posterSrc, programme.posterAlt);
+  setText("itinerary-title", programme.itineraryTitle);
+  renderItinerary(programme.itineraryItems);
+
+  setText("programmeEyebrow", programme.eyebrow);
+  setText("programmeName", programme.name);
+  setText("programmePrice", programme.priceDisplay);
+  setText("programmeSummary", programme.summary);
+  setText("programmeDatesLabel", programme.datesLabel);
+  setText("programmeDatesValue", programme.datesValue);
+  setText("programmeIncludesLabel", programme.includesLabel);
+  renderTextList("programmeIncludesList", programme.includesItems);
+
+  setText("paymentTitle", payment.title);
+  setText("paymentDescription", payment.description);
+  setText("paymentReferenceNote", payment.referenceNote);
+  setImage("paynowQr", payment.qrSrc, payment.qrAlt);
+  setText("paymentPayeeName", payment.payeeName);
+  setText("paymentAmount", payment.amountDisplay);
+  setText("detailNote", registration.detailNote);
+
+  setText("registrationEyebrow", registration.eyebrow);
+  setText("registrationTitle", registration.title);
+  setText("registrationIntro", registration.intro);
+  setText("invoiceTitle", registration.invoiceTitle);
+  setText("invoiceHelp", registration.invoiceHelp);
+  setText("invoiceNameLabel", registration.invoiceNameLabel);
+  setText("consentText", registration.consentText);
+  invoiceNameInput.placeholder = registration.invoiceNamePlaceholder || invoiceNameInput.placeholder;
+  submitButton.textContent = registration.submitButtonLabel || submitButton.textContent;
+  submitButton.dataset.idleLabel = registration.submitButtonLabel || submitButton.textContent;
+}
+
+applyClientContent(clientConfig);
 
 function setMessage(message, state) {
   formMessage.textContent = message;
@@ -23,8 +134,9 @@ function setMessage(message, state) {
 }
 
 function createSubmissionId() {
+  const prefix = (clientConfig?.submissionPrefix || "TRIP").replace(/[^A-Za-z0-9]/g, "").toUpperCase() || "TRIP";
   const randomPart = Math.random().toString(36).slice(2, 8).toUpperCase();
-  return `BNYC-${Date.now()}-${randomPart}`;
+  return `${prefix}-${Date.now()}-${randomPart}`;
 }
 
 async function uploadPaymentProof(file, submissionId) {
@@ -100,9 +212,9 @@ form.addEventListener("submit", async (event) => {
 
     const payload = {
       submission_id: submissionId,
-      trip_name: "BNYC Qingdao Trip",
-      amount_sgd: 1600,
-      payee: "Sing-China",
+      trip_name: clientConfig?.programme?.name || "Programme Registration",
+      amount_sgd: clientConfig?.programme?.amountValue || 0,
+      payee: clientConfig?.payment?.payeeName || "",
       full_name: String(formData.get("fullName") || "").trim(),
       email: String(formData.get("email") || "").trim(),
       contact_number: String(formData.get("contactNumber") || "").trim(),
@@ -132,21 +244,24 @@ form.addEventListener("submit", async (event) => {
       JSON.stringify({
         submissionId: result.submissionId,
         email: payload.email,
-        fullName: payload.full_name
+        fullName: payload.full_name,
+        clientSlug: clientConfig?.slug || window.DEFAULT_CLIENT_SLUG || "bnyc-qingdao"
       })
     );
 
     form.reset();
     syncInvoiceField();
-    const successUrl = new URL("/success.html", window.location.origin);
+    const successPath = clientConfig?.routes?.successPath || "/success.html";
+    const successUrl = new URL(successPath, window.location.origin);
     successUrl.searchParams.set("submissionId", result.submissionId);
     successUrl.searchParams.set("email", payload.email);
     successUrl.searchParams.set("fullName", payload.full_name);
+    successUrl.searchParams.set("client", clientConfig?.slug || window.DEFAULT_CLIENT_SLUG || "bnyc-qingdao");
     window.location.href = successUrl.toString();
   } catch (error) {
     setMessage(error.message || "Submission failed. Please try again.", "error");
   } finally {
     submitButton.disabled = false;
-    submitButton.textContent = "Register";
+    submitButton.textContent = submitButton.dataset.idleLabel || "Register";
   }
 });
