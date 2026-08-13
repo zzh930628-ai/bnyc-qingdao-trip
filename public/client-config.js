@@ -64,6 +64,8 @@
         qrAlt: "Sing-China PayNow QR Code",
         payeeName: "Sing-China",
         amountDisplay: "SGD 1,600.00",
+        uenLabel: "UEN",
+        uenValue: "200813020Z",
         bankTransfer: {
           title: "Bank Transfer",
           intro: "You may also pay by bank transfer using the details below.",
@@ -200,7 +202,9 @@
         qrSrc: "/clients/business-china-ylp-shenzhen/YLP paynow.png",
         qrAlt: "Business China YLP PayNow QR Code",
         payeeName: "Sing-China",
-        amountDisplay: "SGD 2,650.00"
+        amountDisplay: "SGD 2,650.00",
+        uenLabel: "",
+        uenValue: ""
       },
       registration: {
         eyebrow: "Register & Pay",

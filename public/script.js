@@ -102,6 +102,22 @@ function renderBankTransfer(bankTransfer) {
   setText("bankTransferSwiftCodeValue", bankTransfer.swiftCodeValue || "-");
 }
 
+function renderPaymentExtraInfo(payment) {
+  const uenRow = document.getElementById("paymentUenRow");
+  if (!uenRow) {
+    return;
+  }
+
+  if (!payment?.uenValue) {
+    uenRow.hidden = true;
+    return;
+  }
+
+  uenRow.hidden = false;
+  setText("paymentUenLabel", `${payment.uenLabel || "UEN"}:`);
+  setText("paymentUenValue", payment.uenValue);
+}
+
 function applyClientContent(config) {
   if (!config) {
     return;
@@ -132,6 +148,7 @@ function applyClientContent(config) {
   setImage("paynowQr", payment.qrSrc, payment.qrAlt);
   setText("paymentPayeeName", payment.payeeName);
   setText("paymentAmount", payment.amountDisplay);
+  renderPaymentExtraInfo(payment);
   renderBankTransfer(payment.bankTransfer);
   setText("detailNote", registration.detailNote);
 
