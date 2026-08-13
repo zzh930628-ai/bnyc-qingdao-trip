@@ -212,7 +212,7 @@ img {
 .payment-methods-grid {
   margin-top: 16px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: 1fr;
   gap: 16px;
   align-items: start;
 }
@@ -223,15 +223,15 @@ img {
   border-radius: 16px;
   background: var(--surface-soft);
   display: grid;
-  grid-template-columns: minmax(120px, 180px) 1fr;
-  gap: 16px;
-  align-items: center;
+  grid-template-columns: 220px 1fr;
+  gap: 20px;
+  align-items: start;
 }
 
 .paynow-qr {
-  width: min(100%, 180px);
+  width: min(100%, 220px);
   display: block;
-  margin: 0 auto;
+  margin: 0;
   border-radius: 8px;
   background: #fff;
   padding: 4px;
@@ -239,8 +239,12 @@ img {
 }
 
 .pay-card__meta p {
-  margin: 8px 0;
+  margin: 0 0 10px;
   line-height: 1.55;
+}
+
+.pay-card__meta p:last-child {
+  margin-bottom: 0;
 }
 
 .bank-transfer-card {
@@ -265,7 +269,7 @@ img {
 .bank-transfer-grid {
   display: grid;
   gap: 10px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
 }
 
 .bank-transfer-grid p {
@@ -274,15 +278,13 @@ img {
   border-radius: 12px;
   background: var(--surface);
   border: 1px solid var(--line);
-}
-
-.bank-transfer-grid strong,
-.bank-transfer-grid span {
-  display: block;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 14px;
+  align-items: start;
 }
 
 .bank-transfer-grid strong {
-  margin-bottom: 4px;
   color: var(--brand);
   font-size: 0.92rem;
 }
@@ -298,8 +300,13 @@ img {
     grid-template-columns: 1fr;
   }
 
-  .bank-transfer-grid {
+  .paynow-qr {
+    margin: 0 auto;
+  }
+
+  .bank-transfer-grid p {
     grid-template-columns: 1fr;
+    gap: 6px;
   }
 }
 
@@ -317,6 +324,14 @@ img {
 .detail-note {
   margin-top: 22px;
   line-height: 1.7;
+}
+
+.detail-note--poster {
+  margin: 18px 0 0;
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface-soft);
 }
 
 .register-panel {
