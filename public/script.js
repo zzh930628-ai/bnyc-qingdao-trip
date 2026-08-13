@@ -117,7 +117,9 @@ function applyClientContent(config) {
   setText("invoiceHelp", registration.invoiceHelp);
   setText("invoiceNameLabel", registration.invoiceNameLabel);
   setText("consentText", registration.consentText);
-  invoiceNameInput.placeholder = registration.invoiceNamePlaceholder || invoiceNameInput.placeholder;
+  if (Object.prototype.hasOwnProperty.call(registration, "invoiceNamePlaceholder")) {
+    invoiceNameInput.placeholder = registration.invoiceNamePlaceholder;
+  }
   submitButton.textContent = registration.submitButtonLabel || submitButton.textContent;
   submitButton.dataset.idleLabel = registration.submitButtonLabel || submitButton.textContent;
 }

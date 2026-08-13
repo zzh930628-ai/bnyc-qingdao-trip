@@ -72,8 +72,8 @@
         invoiceTitle: "Do you require an invoice?",
         invoiceHelp:
           "If yes, the invoice will be sent to your registered email address within 5 working days after payment verification.",
-        invoiceNameLabel: "Company / Individual Name for Invoice",
-        invoiceNamePlaceholder: "Enter company name or individual name for invoice",
+        invoiceNameLabel: "Please state the information on the invoice",
+        invoiceNamePlaceholder: "",
         consentText:
           "I confirm that the information provided is accurate and I consent to Sing-China using it for registration, payment verification, and programme administration.",
         submitButtonLabel: "Register",
@@ -197,8 +197,8 @@
         invoiceTitle: "Do you require an invoice?",
         invoiceHelp:
           "If yes, the invoice will be sent to your registered email address within 5 working days after payment verification.",
-        invoiceNameLabel: "Company / Individual Name for Invoice",
-        invoiceNamePlaceholder: "Enter company name or individual name for invoice",
+        invoiceNameLabel: "Please state the information on the invoice",
+        invoiceNamePlaceholder: "",
         consentText:
           "I confirm that the information provided is accurate and I consent to Business China and Sing-China using it for registration, payment verification, and programme administration.",
         submitButtonLabel: "Register",
