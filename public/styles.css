@@ -223,27 +223,26 @@ img {
   border-radius: 0;
   background: transparent;
   display: grid;
-  grid-template-columns: 240px 1fr;
+  grid-template-columns: 260px 1fr;
   gap: 20px;
   align-items: center;
 }
 
 .paynow-qr-frame {
-  width: 240px;
+  width: 260px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .paynow-qr {
-  width: 240px;
+  width: 260px;
   display: block;
   margin: 0;
   max-width: 100%;
   border-radius: 8px;
-  background: #fff;
-  padding: 2px;
-  box-shadow: 0 10px 20px rgba(17, 26, 69, 0.08);
+  background: transparent;
+  padding: 0;
 }
 
 .pay-card__meta p {
