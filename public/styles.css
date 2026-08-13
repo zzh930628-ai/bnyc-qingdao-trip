@@ -225,26 +225,41 @@ img {
   display: grid;
   grid-template-columns: 220px 1fr;
   gap: 20px;
-  align-items: start;
+  align-items: center;
+}
+
+.paynow-qr-frame {
+  width: 220px;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 10px 20px rgba(17, 26, 69, 0.08);
+  display: grid;
+  place-items: center;
 }
 
 .paynow-qr {
-  width: min(100%, 220px);
+  width: 254px;
   display: block;
   margin: 0;
-  border-radius: 8px;
-  background: #fff;
-  padding: 4px;
-  box-shadow: 0 10px 20px rgba(17, 26, 69, 0.08);
+  max-width: none;
 }
 
 .pay-card__meta p {
   margin: 0 0 10px;
   line-height: 1.55;
+  display: grid;
+  gap: 2px;
 }
 
 .pay-card__meta p:last-child {
   margin-bottom: 0;
+}
+
+.pay-card__meta strong,
+.pay-card__meta span {
+  display: block;
 }
 
 .bank-transfer-card {
@@ -300,7 +315,7 @@ img {
     grid-template-columns: 1fr;
   }
 
-  .paynow-qr {
+  .paynow-qr-frame {
     margin: 0 auto;
   }
 
