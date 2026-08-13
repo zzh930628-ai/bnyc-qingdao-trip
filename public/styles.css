@@ -230,9 +230,11 @@ img {
 
 .paynow-qr-frame {
   width: 260px;
+  height: 220px;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 .paynow-qr {
@@ -243,6 +245,7 @@ img {
   border-radius: 8px;
   background: transparent;
   padding: 0;
+  transform: translateY(-10px);
 }
 
 .pay-card__meta p {
