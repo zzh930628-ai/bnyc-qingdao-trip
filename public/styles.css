@@ -218,10 +218,10 @@ img {
 }
 
 .pay-card {
-  padding: 14px;
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  background: var(--surface-soft);
+  padding: 10px 0 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
   display: grid;
   grid-template-columns: 240px 1fr;
   gap: 20px;
@@ -232,6 +232,7 @@ img {
   width: 240px;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .paynow-qr {
@@ -275,9 +276,7 @@ img {
 }
 
 .bank-transfer-card > p {
-  margin: 0 0 14px;
-  color: var(--muted);
-  line-height: 1.6;
+  display: none;
 }
 
 .bank-transfer-grid {
