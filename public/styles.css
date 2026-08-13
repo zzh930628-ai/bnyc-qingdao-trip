@@ -223,27 +223,26 @@ img {
   border-radius: 16px;
   background: var(--surface-soft);
   display: grid;
-  grid-template-columns: 220px 1fr;
+  grid-template-columns: 240px 1fr;
   gap: 20px;
   align-items: center;
 }
 
 .paynow-qr-frame {
-  width: 220px;
-  aspect-ratio: 1;
-  overflow: hidden;
-  border-radius: 12px;
-  background: #fff;
-  box-shadow: 0 10px 20px rgba(17, 26, 69, 0.08);
-  display: grid;
-  place-items: center;
+  width: 240px;
+  display: flex;
+  justify-content: center;
 }
 
 .paynow-qr {
-  width: 254px;
+  width: 240px;
   display: block;
   margin: 0;
-  max-width: none;
+  max-width: 100%;
+  border-radius: 8px;
+  background: #fff;
+  padding: 2px;
+  box-shadow: 0 10px 20px rgba(17, 26, 69, 0.08);
 }
 
 .pay-card__meta p {
@@ -293,18 +292,18 @@ img {
   border-radius: 12px;
   background: var(--surface);
   border: 1px solid var(--line);
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 14px;
-  align-items: start;
+  display: block;
 }
 
 .bank-transfer-grid strong {
+  display: block;
+  margin-bottom: 6px;
   color: var(--brand);
   font-size: 0.92rem;
 }
 
 .bank-transfer-grid span {
+  display: block;
   color: var(--ink);
   line-height: 1.6;
   word-break: break-word;
@@ -320,8 +319,7 @@ img {
   }
 
   .bank-transfer-grid p {
-    grid-template-columns: 1fr;
-    gap: 6px;
+    padding: 12px 14px;
   }
 }
 
