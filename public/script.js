@@ -78,6 +78,30 @@ function renderItinerary(items) {
   });
 }
 
+function renderBankTransfer(bankTransfer) {
+  const card = document.getElementById("paymentBankTransfer");
+  if (!card) {
+    return;
+  }
+
+  if (!bankTransfer) {
+    card.hidden = true;
+    return;
+  }
+
+  card.hidden = false;
+  setText("bankTransferTitle", bankTransfer.title || "Bank Transfer");
+  setText("bankTransferIntro", bankTransfer.intro || "");
+  setText("bankTransferAccountHolderLabel", bankTransfer.accountHolderLabel || "Name of Account Holder");
+  setText("bankTransferAccountHolderValue", bankTransfer.accountHolderValue || "-");
+  setText("bankTransferBankNameLabel", bankTransfer.bankNameLabel || "Bank Name");
+  setText("bankTransferBankNameValue", bankTransfer.bankNameValue || "-");
+  setText("bankTransferAccountNumberLabel", bankTransfer.accountNumberLabel || "Bank Account No");
+  setText("bankTransferAccountNumberValue", bankTransfer.accountNumberValue || "-");
+  setText("bankTransferSwiftCodeLabel", bankTransfer.swiftCodeLabel || "SWIFT Code");
+  setText("bankTransferSwiftCodeValue", bankTransfer.swiftCodeValue || "-");
+}
+
 function applyClientContent(config) {
   if (!config) {
     return;
@@ -108,6 +132,7 @@ function applyClientContent(config) {
   setImage("paynowQr", payment.qrSrc, payment.qrAlt);
   setText("paymentPayeeName", payment.payeeName);
   setText("paymentAmount", payment.amountDisplay);
+  renderBankTransfer(payment.bankTransfer);
   setText("detailNote", registration.detailNote);
 
   setText("registrationEyebrow", registration.eyebrow);
@@ -139,6 +164,21 @@ function createSubmissionId() {
   const prefix = (clientConfig?.submissionPrefix || "TRIP").replace(/[^A-Za-z0-9]/g, "").toUpperCase() || "TRIP";
   const randomPart = Math.random().toString(36).slice(2, 8).toUpperCase();
   return `${prefix}-${Date.now()}-${randomPart}`;
+}
+
+async function notifyDingTalk(payload) {
+  const response = await fetch("/api/dingtalk-notify", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(payload)
+  });
+
+  if (!response.ok) {
+    const result = await response.json().catch(() => ({}));
+    throw new Error(result.message || "DingTalk notification failed.");
+  }
 }
 
 async function uploadPaymentProof(file, submissionId) {
@@ -250,6 +290,21 @@ form.addEventListener("submit", async (event) => {
         clientSlug: clientConfig?.slug || window.DEFAULT_CLIENT_SLUG || "bnyc-qingdao"
       })
     );
+
+    try {
+      await notifyDingTalk({
+        tripName: payload.trip_name,
+        submissionId: result.submissionId,
+        fullName: payload.full_name,
+        email: payload.email,
+        contactNumber: payload.contact_number,
+        companyDesignation: payload.company_designation,
+        requireInvoice: payload.require_invoice,
+        invoiceName: payload.invoice_name || "-"
+      });
+    } catch (notificationError) {
+      console.error(notificationError);
+    }
 
     form.reset();
     syncInvoiceField();

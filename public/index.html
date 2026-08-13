@@ -85,13 +85,23 @@
 
           <div class="detail-group" id="payment">
             <h3 id="paymentTitle">Payment</h3>
-            <p id="paymentDescription">Please scan the PayNow QR code and upload your payment proof after payment.</p>
+            <p id="paymentDescription">Please complete your payment by PayNow or bank transfer, then upload your payment proof.</p>
             <p class="payment-reference-note" id="paymentReferenceNote">Please enter your full name in the payment reference.</p>
             <div class="pay-card">
               <img src="/clients/bnyc-qingdao/paynow-qr.png" alt="Sing-China PayNow QR Code" class="paynow-qr" id="paynowQr" />
               <div class="pay-card__meta">
                 <p><strong>Payee:</strong> <span id="paymentPayeeName">Sing-China</span></p>
                 <p><strong>Amount:</strong> <span id="paymentAmount">SGD 1,600.00</span></p>
+              </div>
+            </div>
+            <div class="bank-transfer-card" id="paymentBankTransfer" hidden>
+              <h4 id="bankTransferTitle">Bank Transfer</h4>
+              <p id="bankTransferIntro">You may also pay by bank transfer using the details below.</p>
+              <div class="bank-transfer-grid">
+                <p><strong id="bankTransferAccountHolderLabel">Name of Account Holder</strong><span id="bankTransferAccountHolderValue">-</span></p>
+                <p><strong id="bankTransferBankNameLabel">Bank Name</strong><span id="bankTransferBankNameValue">-</span></p>
+                <p><strong id="bankTransferAccountNumberLabel">Bank Account No</strong><span id="bankTransferAccountNumberValue">-</span></p>
+                <p><strong id="bankTransferSwiftCodeLabel">SWIFT Code</strong><span id="bankTransferSwiftCodeValue">-</span></p>
               </div>
             </div>
           </div>

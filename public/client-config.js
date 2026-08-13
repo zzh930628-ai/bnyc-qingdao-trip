@@ -58,12 +58,24 @@
       },
       payment: {
         title: "Payment",
-        description: "Please scan the PayNow QR code and upload your payment proof after payment.",
+        description: "Please complete your payment by PayNow or bank transfer, then upload your payment proof.",
         referenceNote: "Please enter your full name in the payment reference.",
         qrSrc: "/clients/bnyc-qingdao/paynow-qr.png",
         qrAlt: "Sing-China PayNow QR Code",
         payeeName: "Sing-China",
-        amountDisplay: "SGD 1,600.00"
+        amountDisplay: "SGD 1,600.00",
+        bankTransfer: {
+          title: "Bank Transfer",
+          intro: "You may also pay by bank transfer using the details below.",
+          accountHolderLabel: "Name of Account Holder",
+          accountHolderValue: "SINGAPORE SING-CHINA INTERNATIONAL TRAINING GROUP PTE LTD",
+          bankNameLabel: "Bank Name",
+          bankNameValue: "United Overseas Bank Ltd",
+          accountNumberLabel: "Bank Account No",
+          accountNumberValue: "339-303-342-6",
+          swiftCodeLabel: "SWIFT Code",
+          swiftCodeValue: "UOVBSGSGXXX"
+        }
       },
       registration: {
         eyebrow: "Register & Pay",
