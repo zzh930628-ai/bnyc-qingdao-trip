@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1600" fill="none">
+  <rect width="900" height="1600" fill="#E6DDD2"/>
+  <rect x="56" y="56" width="788" height="1488" rx="36" stroke="#171717" stroke-opacity="0.14"/>
+  <rect x="130" y="186" width="640" height="510" rx="28" fill="#F5F0E9"/>
+  <rect x="130" y="764" width="470" height="74" rx="14" fill="#171717" fill-opacity="0.08"/>
+  <rect x="130" y="872" width="590" height="24" rx="12" fill="#171717" fill-opacity="0.08"/>
+  <rect x="130" y="922" width="540" height="24" rx="12" fill="#171717" fill-opacity="0.08"/>
+  <text x="130" y="1278" fill="#171717" fill-opacity="0.76" font-family="Georgia, serif" font-size="44">CREATOR SHOT 01</text>
+  <text x="130" y="1324" fill="#171717" fill-opacity="0.56" font-family="Arial, sans-serif" font-size="18" letter-spacing="4">REPLACE WITH XIAOHONGSHU POST SCREENSHOT</text>
+</svg>

@@ -21,6 +21,18 @@ function setText(id, value) {
   }
 }
 
+function resolveAssetPath(src) {
+  if (typeof src !== "string" || src.length === 0) {
+    return src;
+  }
+
+  if (window.location.protocol === "file:" && src.startsWith("/")) {
+    return `.${src}`;
+  }
+
+  return src;
+}
+
 function setImage(id, src, alt) {
   const element = document.getElementById(id);
   if (!element) {
@@ -34,7 +46,7 @@ function setImage(id, src, alt) {
 
   element.hidden = false;
 
-  element.src = src;
+  element.src = resolveAssetPath(src);
 
   if (alt) {
     element.alt = alt;

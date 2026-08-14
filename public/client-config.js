@@ -141,7 +141,7 @@
       brand: {
         name: "Business China",
         subtitle: "YLP Immersion Programme - Shenzhen",
-        logoSrc: "/clients/business-china-ylp-shenzhen/logo.png",
+        logoSrc: "/clients/business-china-ylp-shenzhen/business-china-logo.png",
         logoAlt: "Business China logo"
       },
       programme: {

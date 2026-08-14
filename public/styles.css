@@ -61,12 +61,31 @@ img {
   gap: 14px;
 }
 
+.brand-block--dual-logo {
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.brand-copy[hidden] {
+  display: none;
+}
+
 .brand-logo {
   width: auto;
   height: auto;
   max-width: 200px;
   max-height: 64px;
   display: block;
+}
+
+.brand-logo--primary {
+  max-width: 120px;
+  max-height: 120px;
+}
+
+.brand-logo--secondary {
+  max-width: 240px;
+  max-height: 110px;
 }
 
 .brand-title {
@@ -678,9 +697,23 @@ button:disabled {
     align-items: center;
   }
 
+  .brand-block--dual-logo {
+    gap: 12px;
+  }
+
   .brand-logo {
     max-width: 150px;
     max-height: 52px;
+  }
+
+  .brand-logo--primary {
+    max-width: 84px;
+    max-height: 84px;
+  }
+
+  .brand-logo--secondary {
+    max-width: 176px;
+    max-height: 82px;
   }
 
   .page-shell {
